@@ -44,7 +44,7 @@ def rank(avatar: str, username: str, level: str, req: str, xp: str, color_hex: s
     background.text((150, 37 + 4), username, font=poppins, color="white")
 
     poppins = Font.poppins(size=25)
-    background.text((145, 107), f"Level: {int(level)}   XP:  {abreviar_numero(int(xp))} /  {abreviar_numero(int(req))}, font=poppins, color="white")
+    background.text((145, 107), f"Level: {int(level)}   XP:  {abreviar_numero(int(xp))} /  {abreviar_numero(int(req))}", font=poppins, color="white")
 
     img_buffer = BytesIO()
     background.image.save(img_buffer, format="PNG")
