@@ -10,11 +10,6 @@ router = APIRouter()
 
 @router.get("/api/level/level_card/")
 def rank(avatar: str, username: str, level: str, req: str, xp: str, color_bg: str, color_xp: str):
-    if not color_bg:
-        color_bg = "#41b2b0"
-        
-    if not color_xp:
-        color_xp = "#41b2b0"
 
     background = Editor(Canvas((800, 200), color="#23272a"))
 
