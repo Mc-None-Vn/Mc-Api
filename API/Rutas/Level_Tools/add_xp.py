@@ -2,9 +2,9 @@ from fastapi import APIRouter
 
 router = APIRouter()
 
-@router.get("/api/add_xp/")
-def xp(xp: int, req: int, level: int, bonus: int):
-    xp += bonus
+@router.get("/api/level/auto_level/")
+def xp(xp: int, req: int, level: int, add: int):
+    xp += add
 
     while xp >= req:
         xp -= req
