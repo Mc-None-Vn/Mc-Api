@@ -9,15 +9,18 @@ import requests
 router = APIRouter()
 
 @router.get("/api/level/level_card/")
-def rank(avatar: str, username: str, level: str, req: str, xp: str, color_hex: str):
-    if not color_hex:
-        color_hex = "#41b2b0"
+def rank(avatar: str, username: str, level: str, req: str, xp: str, color_bg: str, color_xp: str):
+    if not color_bg:
+        color_bg = "#41b2b0"
+        
+    if not color_xp:
+        color_xp = "#41b2b0"
 
     background = Editor(Canvas((800, 200), color="#23272a"))
 
     avatar_response = requests.get(avatar)
     if avatar_response.status_code != 200:
-        raise HTTPException(status_code=400, detail="Không tải được ảnh đại diện.")
+        raise HTTPException(status_code=400, detail="Khong tai duoc anh dai dien.")
     profile = Editor(BytesIO(avatar_response.content)).resize((120, 120)).circle_image()
 
     background.paste(profile, (15, 14))
@@ -35,10 +38,10 @@ def rank(avatar: str, username: str, level: str, req: str, xp: str, color_hex: s
     porcentaje = int(min(porcentaje, 100))
 
     # Áp dụng tỷ lệ phần trăm cho thanh
-    background.bar((15, 148), max_width=608, height=35, percentage=porcentaje, fill=f"{color_hex}", radius=17)
+    background.bar((15, 148), max_width=608, height=35, percentage=porcentaje, fill=f"{color_xp}", radius=17)
 
     # Dòng bên dưới văn bản op
-    background.rectangle((150, 80 + 4), width=145, height=2, fill=color_hex)
+    background.rectangle((150, 80 + 4), width=145, height=2, fill=color_bg)
 
     poppins = Font.poppins(size=35)
     background.text((150, 37 + 4), username, font=poppins, color="white")
