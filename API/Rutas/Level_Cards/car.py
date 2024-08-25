@@ -5,7 +5,7 @@ import requests
 
 router = APIRouter()
 
-@router.get("/api/level_up/")
+@router.get("/api/level/level_up/")
 def level(avatar: str, level:int):
     if not str(level).isdigit(): 
         level = 1
@@ -16,7 +16,7 @@ def level(avatar: str, level:int):
    
     avatar_response = requests.get(avatar)
     if avatar_response.status_code != 200:
-        raise HTTPException(status_code=400, detail="Failed to download avatar image.")
+        raise HTTPException(status_code=400, detail="Không tải được ảnh đại diện.")
     profile = Editor(BytesIO(avatar_response.content)).resize((101, 101)).circle_image()
 
    
@@ -24,7 +24,7 @@ def level(avatar: str, level:int):
     desplazamiento_x = 17  
     editor.rectangle((110, 16), width=230, height=100, fill="#25262a", radius=15)
     editor.ellipse((30 + desplazamiento_x, 11), width=110, height=110, outline="white", stroke_width=8)
-    editor.text((180, 57), f"level {level}", font=poppins, color="white")
+    editor.text((180, 57), f"Lên level {level}", font=poppins, color="white")
     editor.paste(profile.image, (35 + desplazamiento_x, 16))
 
     
