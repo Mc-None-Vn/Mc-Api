@@ -18,4 +18,4 @@ app.include_router(router_principal)
 
 @app.get("/")
 def on_router():
-    return Response(json.dumps({"status": 200, "data": {"message": {"vi": "Chào mừng đến với Mc API", "en": "Welcome to Mc API"}}}, indent=4), media_type="application/json", status_code=200)
+    return Response(json.dumps({"status": 200, "data": {"message": {"vi": "Chào mừng đến với Mc API", "en": "Welcome to Mc API"}}}, indent=2), media_type="application/json", status_code=200)
