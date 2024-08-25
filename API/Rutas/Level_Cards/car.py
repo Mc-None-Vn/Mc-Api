@@ -16,7 +16,7 @@ def level(avatar: str, level:int):
    
     avatar_response = requests.get(avatar)
     if avatar_response.status_code != 200:
-        raise HTTPException(status_code=400, detail="Không tải được ảnh đại diện.")
+        raise HTTPException(status_code=400, detail="Khong tai duoc anh dai dien.")
     profile = Editor(BytesIO(avatar_response.content)).resize((101, 101)).circle_image()
 
    
