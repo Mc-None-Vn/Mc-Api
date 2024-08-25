@@ -19,3 +19,11 @@ app.include_router(router_principal)
 @app.get("/")
 def on_router():
     return Response(json.dumps({"status": 200, "data": {"message": {"vi": "Chao mung den voi Mc API", "en": "Welcome to Mc API"}, "language": {"vi": "Chi ho tro Tieng Viet", "en": "Only supports Vietnamese"}}}, indent=2), media_type="application/json", status_code=200)
+
+@app.get("/api/", "/api")
+def on_router():
+    return Response(json.dumps({"status": 200, "data": {"message": "Mc API co: /level/"}}, indent=2), media_type="application/json", status_code=200)
+
+@app.get("/api/level", "/api/level/")
+def on_router():
+    return Response(json.dumps({"status": 200, "data": {"message": "API Level co: /level_up, /level_card, /auto_level"}}, indent=2), media_type="application/json", status_code=200)
