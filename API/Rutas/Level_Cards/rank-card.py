@@ -9,7 +9,7 @@ import requests
 router = APIRouter()
 
 @router.get("/api/rankcard/")
-def rank(avatar: str, username: str, level: str, req: str, xp: str, rank: str, color_hex: str):
+def rank(avatar: str, username: str, level: str, req: str, xp: str, color_hex: str):
     if not color_hex:
         color_hex = "#41b2b0"
 
@@ -44,7 +44,7 @@ def rank(avatar: str, username: str, level: str, req: str, xp: str, rank: str, c
     background.text((150, 37 + 4), username, font=poppins, color="white")
 
     poppins = Font.poppins(size=25)
-    background.text((145, 107), f"Level: {int(level)}   XP:  {abreviar_numero(int(xp))} /  {abreviar_numero(int(req))}   Rank: {int(rank)}", font=poppins, color="white")
+    background.text((145, 107), f"Level: {int(level)}   XP:  {abreviar_numero(int(xp))} /  {abreviar_numero(int(req))}, font=poppins, color="white")
 
     img_buffer = BytesIO()
     background.image.save(img_buffer, format="PNG")
