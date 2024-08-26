@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-@app.route('/api/data', methods=['POST'])
+@app.route('/api/data/save', methods=['POST'])
 def save_data():
     data = request.get_json()
     # Xử lý dữ liệu và lưu trữ vào cơ sở dữ liệu
