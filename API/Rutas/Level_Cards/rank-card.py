@@ -21,7 +21,7 @@ def rank(avatar: str, username: str, level: str, req: str, xp: str, color_bg: st
     background.paste(profile, (15, 14))
 
     card_right_shape = [(520, 0), (750, 300), (900, 300), (900, 0)]
-    background.polygon(card_right_shape, color_hex)
+    background.polygon(card_right_shape, color_bg)
 
     # Đường trắng
     background.rectangle((15, 148), width=608, height=35, fill="#ffffff", radius=17)
