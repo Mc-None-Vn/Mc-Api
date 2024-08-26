@@ -39,7 +39,7 @@ def rank(avatar: str, username: str, level: str, req: str, xp: str, color_bg: st
     background.rectangle((150, 80 + 4), width=145, height=2, fill=color_bg)
 
     poppins = Font.poppins(size=35)
-    background.text((150, 37 + 4), username, font=poppins, color="white")
+    background.text((150, 37 + 4), f"{username}", font=none, color="white")
 
     poppins = Font.poppins(size=25)
     background.text((145, 107), f"Level: {int(level)}   XP:  {abreviar_numero(int(xp))} /  {abreviar_numero(int(req))}", font=poppins, color="white")
