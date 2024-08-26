@@ -33,10 +33,10 @@ def rank(avatar: str, username: str, level: str, req: str, xp: str, color_bg: st
     porcentaje = int(min(porcentaje, 100))
 
     # Áp dụng tỷ lệ phần trăm cho thanh
-    background.bar((15, 148), max_width=608, height=35, percentage=porcentaje, fill=color_xp, radius=17)
+    background.bar((15, 148), max_width=608, height=35, percentage=porcentaje, fill=f"color_xp", radius=17)
 
     # Dòng bên dưới văn bản op
-    background.rectangle((150, 80 + 4), width=145, height=2, fill=color_bg)
+    background.rectangle((150, 80 + 4), width=145, height=2, fill=f"color_bg")
 
     poppins = Font.poppins(size=35)
     background.text((150, 37 + 4), username, font=poppins, color="white")
