@@ -6,8 +6,8 @@ import logging
 
 router = APIRouter()
 
-@router.get("/api/welcomecard/")
-def get_custom_image(avatar: str, background: str, ctx1: str="WELCOME", ctx2: str="xquab#0", ctx3: str="You are the 457th Member"):
+@router.get("/api/welcome_card/")
+def get_custom_image(avatar: str, background: str, ctx1: str="Welcome", ctx2: str="username#0", ctx3: str="You are the 123th Member"):
     try:
         
         avatar_response = requests.get(avatar)
@@ -23,10 +23,10 @@ def get_custom_image(avatar: str, background: str, ctx1: str="WELCOME", ctx2: st
 
         
         poppins = Font.poppins(size=50, variant="bold")
-        poppins_small = Font.poppins(size=25, variant="regular")
+        poppins_small = Font.poppins(size=35, variant="regular")
 
        
-        horizontal_shift = 63
+        horizontal_shift = 67.5
 
        
         editor = Editor(background_image)
