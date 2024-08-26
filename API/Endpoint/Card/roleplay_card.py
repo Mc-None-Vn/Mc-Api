@@ -7,7 +7,7 @@ import requests
 router = APIRouter()
 
 @router.get("/api/card/rp_card/")
-def param(avatar: str, name: str=None, description: str=None, age: str=None, sex: str=None, nation: str=None, birthday: str=XX / XX / XXXX):
+def param(avatar: str, name: str=None, id: str=None, age: str=None, sex: str=None, nation: str=None, birthday: str=XX / XX / XXXX):
     
     canvas = Canvas((350, 200), color="black")
 
@@ -33,7 +33,7 @@ def param(avatar: str, name: str=None, description: str=None, age: str=None, sex
     fondo.text((157, 75), text=f"Họ và Tên: {name}",font=NOM ,color="black")
 
 
-    fondo.text((157, 95), text=f"Mô tả: {description}",font=NOM ,color="black")
+    fondo.text((157, 95), text=f"Id: {id}",font=NOM ,color="black")
 
 
     fondo.text((157, 116), text=f"Tuổi: {age}",font=NOM ,color="black")
@@ -41,10 +41,7 @@ def param(avatar: str, name: str=None, description: str=None, age: str=None, sex
 
     fondo.text((157, 135), text=f"Giới tính:{sex} ",font=NOM ,color="black")
 
-    fondo.text((157, 155), text=f"Quốc tịch: {nation}",font=NOM ,color="black")
-
-    fondo.text((157, 175), text=f"Sinh nhật: {birthday}",font=NOM ,color="black")
-
+    fondo.text((157, 175), text=f"Quốc tịch: {nation}",font=NOM ,color="black")
 
     NOM2 = Font.poppins(size=8, variant="bold")
     fondo.text((28, 180), text="Đây không phải thông tin thật!",font=NOM2 ,color="black")
