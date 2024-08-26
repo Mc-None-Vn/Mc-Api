@@ -6,7 +6,7 @@ import requests
 
 router = APIRouter()
 
-@router.get("/api/card/rp_card/")
+@router.get("/api/card/rpcard/")
 def param(avatar: str, name: str=None, id: str=None, age: str=None, sex: str=None, nation: str=None, birthday: str=XX / XX / XXXX):
     
     canvas = Canvas((350, 200), color="black")
