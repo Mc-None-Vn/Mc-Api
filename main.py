@@ -22,7 +22,7 @@ def on_router():
 
 @app.get("/api/")
 def on_router():
-    return Response(json.dumps({"status": 200, "data": {"message": "Mc API co: /level/"}}, indent=2), media_type="application/json", status_code=200)
+    return Response(json.dumps({"status": 200, "data": {"message": "Mc API co: /level/, /card/"}}, indent=2), media_type="application/json", status_code=200)
 
 @app.get("/api/level/")
 def on_router():
