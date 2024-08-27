@@ -5,7 +5,7 @@ import requests
 
 router = APIRouter()
 
-@router.get("/api/level/level_up/")
+@router.get("/api/level/up/")
 def level(avatar: str, level:str):
        
     canvas = Canvas((700, 130), color=(0, 0, 0, 0))
