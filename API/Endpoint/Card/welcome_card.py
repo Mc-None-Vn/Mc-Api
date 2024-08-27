@@ -6,7 +6,7 @@ import logging
 
 router = APIRouter()
 
-@router.get("/api/welcome_card/")
+@router.get("/api/card/welcome/")
 def get_custom_image(avatar: str, background: str, ctx1: str="Welcome", ctx2: str="username#0", ctx3: str="You are the 123th Member"):
     try:
         
