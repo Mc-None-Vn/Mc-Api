@@ -48,6 +48,6 @@ def rank(avatar: str, username: str, level: str, req: str, xp: str, color_bg: st
     background.image.save(img_buffer, format="PNG")
     img_buffer.seek(0)
 
-    return Response(content=img_buffer.getvalue(), media_type="image/png")
+    return {"url": "Response(content=img_buffer.getvalue(), media_type="image/png")"}
     
 
