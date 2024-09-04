@@ -27,24 +27,24 @@ def param(avatar: str, name: str, id: str, age: str, sex: str, nation: str, birt
 
 
     poppins = Font.poppins(size=15, variant="bold")
-    fondo.text((26, 20), text="Thẻ Thông Tin Cá Nhân",font=poppins ,color="white")
+    fondo.text((26, 20), text="The Thong Tin Ca Nhan",font=poppins ,color="white")
 
     NOM = Font.poppins(size=12, variant="bold")
-    fondo.text((157, 75), text=f"Họ và Tên: {name}",font=NOM ,color="black")
+    fondo.text((157, 75), text=f"Ho va Ten: {name}",font=NOM ,color="black")
 
 
     fondo.text((157, 95), text=f"Id: {id}",font=NOM ,color="black")
 
 
-    fondo.text((157, 116), text=f"Tuổi: {age}",font=NOM ,color="black")
+    fondo.text((157, 116), text=f"Tuoi: {age}",font=NOM ,color="black")
 
 
-    fondo.text((157, 135), text=f"Giới tính:{sex} ",font=NOM ,color="black")
+    fondo.text((157, 135), text=f"Gioi tinh:{sex} ",font=NOM ,color="black")
 
-    fondo.text((157, 175), text=f"Quốc tịch: {nation}",font=NOM ,color="black")
+    fondo.text((157, 175), text=f"Quoc tich: {nation}",font=NOM ,color="black")
 
     NOM2 = Font.poppins(size=8, variant="bold")
-    fondo.text((28, 180), text="Đây không phải thông tin thật!",font=NOM2 ,color="black")
+    fondo.text((28, 180), text="Day khong phai thong tin that!",font=NOM2 ,color="black")
 
     img_buffer = BytesIO()
     fondo.image.save(img_buffer, format="PNG")
