@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, Query,APIRouter, render_template
+from fastapi import FastAPI, HTTPException, Query,APIRouter
 from fastapi.responses import Response, JSONResponse, StreamingResponse
 from API.Funcion_Ruta.loop import registrar_rutas_desde_directorio
 import json
@@ -18,7 +18,7 @@ app.include_router(router_principal)
 
 @app.get("/")
 def on_router():
-    return render_template('index.html')
+    return Response('index.html')
 
 @app.get("/api/")
 def on_router():
