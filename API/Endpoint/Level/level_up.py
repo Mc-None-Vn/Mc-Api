@@ -7,10 +7,12 @@ router = APIRouter()
 
 @router.get("/api/level/up/")
 def level(avatar: str, level: str):
-    if count_digits(level_response) <= "3"
+    if count_digits(level_response) <= 3
         wi = "230"
-    if count_digits(level_response) <= "6"
-        wi = "260"
+
+    else
+        if count_digits(level_response) <= 6
+            wi = "260"
     
     canvas = Canvas((700, 130), color=(0, 0, 0, 0))
     editor = Editor(canvas.image)
