@@ -7,7 +7,7 @@ import requests
 router = APIRouter()
 
 @router.get("/api/card/roleplay/")
-def param(avatar: str, name: str, id: str, age: str, sex: str, nation: str, birthday: str):
+def param(avatar: str, name: str, id: str, age: str, sex: str, nation: str):
     
     canvas = Canvas((350, 200), color="black")
 
