@@ -9,7 +9,7 @@ import requests
 router = APIRouter()
 
 @router.get("/api/level/card/")
-def rank(avatar: str, username: str, level: str, req: str, xp: str, color_bg: str, color_xp: str):
+def rank(avatar: str, username: str, level: str, req: str, xp: str, color_bg: str, color_xp: str, color_font: str, color_xp_bg: str):
 
     background = Editor(Canvas((800, 200), color="#23272a"))
 
@@ -24,7 +24,7 @@ def rank(avatar: str, username: str, level: str, req: str, xp: str, color_bg: st
     background.polygon(card_right_shape, color_bg)
 
     # Đường trắng
-    background.rectangle((15, 148), width=608, height=35, fill="#ffffff", radius=17)
+    background.rectangle((15, 148), width=608, height=35, fill=f"{color_xp_bg}", radius=17)
 
 
     req = float(req)
@@ -39,10 +39,10 @@ def rank(avatar: str, username: str, level: str, req: str, xp: str, color_bg: st
     background.rectangle((150, 80 + 4), width=145, height=2, fill=color_bg)
 
     poppins = Font.poppins(size=35)
-    background.text((150, 37 + 4), username, font=poppins, color="white")
+    background.text((150, 37 + 4), username, font=poppins, color=f"{color_font}")
 
     poppins = Font.poppins(size=25)
-    background.text((145, 107), f"Level: {int(level)}       XP: {abreviar_numero(int(xp))} / {abreviar_numero(int(req))}", font=poppins, color="white")
+    background.text((145, 107), f"Level: {int(level)}       XP: {abreviar_numero(int(xp))} / {abreviar_numero(int(req))}", font=poppins, color=f"{color_font}")
 
     img_buffer = BytesIO()
     background.image.save(img_buffer, format="PNG")
