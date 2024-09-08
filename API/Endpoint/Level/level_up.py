@@ -7,12 +7,6 @@ router = APIRouter()
 
 @router.get("/api/level/up/")
 def level(avatar: str, level: str):
-    if count_digits(level_response) <= 3
-        wi = "230"
-
-    else
-        if count_digits(level_response) <= 6
-            wi = "260"
     
     canvas = Canvas((700, 130), color=(0, 0, 0, 0))
     editor = Editor(canvas.image)
@@ -26,7 +20,7 @@ def level(avatar: str, level: str):
    
     poppins = Font.poppins(size=30)
     desplazamiento_x = 20
-    editor.rectangle((110, 16), width=wi, height=100, fill="#25262a", radius=15)
+    editor.rectangle((110, 16), width=250, height=100, fill="#25262a", radius=15)
     editor.ellipse((30 + desplazamiento_x, 11), width=110, height=110, outline="white", stroke_width=8)
     editor.text((180, 57), f"Level {level}", font=poppins, color="white")
     editor.paste(profile.image, (35 + desplazamiento_x, 16))
