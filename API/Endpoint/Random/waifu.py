@@ -1,8 +1,9 @@
 from flask import Flask, jsonify, request
+from fastapi import APIRouter, Response, HTTPException
 import os
 import uuid
 
-app = Flask(__name__)
+router = APIRouter()
 
 # Dữ liệu ảnh
 images = [
@@ -13,7 +14,7 @@ images = [
 ]
 
 # Nhận ngẫu nhiên một ảnh
-@app.route('/api/random_image', methods=['GET'])
+@router.get("/api/random/waifu")
 def get_random_image():
     import random
     random_image = random.choice(images)
