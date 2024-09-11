@@ -26,7 +26,12 @@ $image[$var[url]/api/level/card/?avatar=$var[avt]&username=$var[name]&level=$var
 ### 2. Level auto (Tự cộng level)
 #### Code:
 ```
-$httpGet[https://mc-none-vn.onrender.com/api/level/auto/?xp=90&req=100&level=2&add=5]
+$var[url;https://mc-none-vn.onrender.com]
+$var[add;5]
+$var[lvl;2]
+$var[xp;90]
+$var[req;100]
+$httpGet[$var[url]/api/level/auto/?xp=$var[xp]&req=$var[req]&level=$var[lvl]&add=$var[add]]
 Xp: $httpResult[xp]
 Req: $httpResult[req]
 Level: $httpResult[level]
@@ -39,7 +44,10 @@ Level: $httpResult[level]
 ### 3. Level up card
 #### Code:
 ```
-$image[hhtps://mc-none-vn.onrender.com/api/level/up/?level=3&avatar=$authorAvatar]
+$var[url;https://mc-none-vn.onrender.com]
+$var[avt;$authorAvatar]
+$var[lvl;3]
+$image[$var[url]/api/level/up/?level=$var[lvl]&avatar=$var[avt]]
 ```
 #### Thành quả:
 ![Image]
