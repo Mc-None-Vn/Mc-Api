@@ -18,7 +18,7 @@ app.include_router(router_principal)
 
 @app.get("/")
 def on_router():
-    return Response('index.html')
+    return "index.html"
 
 @app.get("/api/")
 def on_router():
