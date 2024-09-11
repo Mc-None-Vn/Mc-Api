@@ -3,7 +3,6 @@
 
 
 ## Api level
-
 ### 1. Level card
 #### Code:
 ```python
