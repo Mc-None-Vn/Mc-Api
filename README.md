@@ -19,9 +19,7 @@ $var[hex-xp-bg;$url[encode;#ffffff]] $c[Màu nền thanh xp khi chưa đầy tha
 $image[$var[url]/api/level/card/?avatar=$var[avt]&username=$var[name]&level=$var[lvl]&xp=$var[xp]&req=$var[req]&color_bg=$var[hex-bg]&color_xp=$var[hex-xp]&color_font=$var[color-font]&color_xp_bg=$var[hex-xp-bg]]
 ```
 #### Thành quả:
-```
 ![Image](https://github.com/LorenorMc/Mc-Api/blob/e9474bd090821d0119fd324c030497d7b3edcf5d/Textures/Level%20Card.png)
-```
 ** **
 ### 2. Level auto (Tự cộng level)
 #### Code:
@@ -37,11 +35,9 @@ Req: $httpResult[req]
 Level: $httpResult[level]
 ```
 #### Thành quả:
-```
-Xp: 95
-Req: 100
-Level: 2
-```
+###### Xp: 95
+###### Req: 100
+###### Level: 2
 ** **
 ### 3. Level up card
 #### Code:
