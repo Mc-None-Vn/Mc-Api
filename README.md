@@ -20,6 +20,8 @@ $image[$var[url]/api/level/card/?avatar=$var[avt]&username=$var[name]&level=$var
 ```
 #### Thành quả:
 ![Image]
+```
+```
 # 
 ### 2. Level auto (Tự cộng level)
 #### Code:
@@ -31,6 +33,8 @@ Level: $httpResult[level]
 ```
 #### Thành quả:
 ![Image]
+```
+```
 # 
 ### 3. Level up card
 #### Code:
