@@ -3,7 +3,7 @@
 
 
 ## Api level
-
+# 
 ### 1. Level card
 #### Code:
 ```python
@@ -21,7 +21,7 @@ $image[$var[url]/api/level/card/?avatar=$var[avt]&username=$var[name]&level=$var
 ```
 #### Thành quả:
 ![Image]
-
+# 
 ### 2. Level auto (Tự cộng level)
 #### Code:
 ```python
@@ -32,7 +32,7 @@ Level: $httpResult[level]
 ```
 #### Thành quả:
 ![Image]
-
+# 
 ### 3. Level up card
 #### Code:
 ```python
@@ -40,6 +40,5 @@ $image[https://mc-none-vn.onrender.com/api/level/up/?level=3&avatar=$authorAvata
 ```
 #### Thành quả:
 ![Image]
-
 # 
 #### © 2024 mc.none MSVB Community. All rights reserved!
