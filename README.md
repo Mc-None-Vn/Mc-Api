@@ -8,7 +8,17 @@
 ### 1. Level card
 #### Code:
 ```python
-$image[https://mc-none-vn.onrender.com/api/level/card/?avatar=$authorAvatar&username=$username&level=1&xp=10&req=100&color_bg=$url[encode;#ff0000]&color_xp=$url[encode;#00e500]&color_font=$url[encode;white]&color_xp_bg=$url[encode;#ff0000]]
+$var[url;https://mc-none-vn.onrender.com]
+$var[avt;$authorAvatar]
+$var[name;$username]
+$var[lvl;1]
+$var[xp;10]
+$var[req;100]
+$var[hex-bg;#ff0000] $c[Màu nền bên phải Level card]
+$var[hex-xp;#00e500] $c[Màu hiển thị xp đang có bao nhiêu]
+$var[color-font;white] $c[Màu chữ (Bắt buộc khi chữ, ko phải hex)]
+$var[hex-xp-bg;#ffffff]
+$image[$var[url]/api/level/card/?avatar=$var[avt]&username=$var[name]&level=$var[lvl]&xp=$var[xp]&req=$var[req]&color_bg=$url[encode;$var[hex-bg]]&color_xp=$url[encode;$var[hex-xp]]&color_font=$url[encode;$var[color-font]]&color_xp_bg=$url[encode;$var[hex-xp-bg]]]
 ```
 #### Thành quả:
 ![Image]
