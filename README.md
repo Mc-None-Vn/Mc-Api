@@ -35,11 +35,11 @@ Req: $httpResult[req]
 Level: $httpResult[level]
 ```
 #### Thành quả:
-`
+```
 Xp: 95
 Req: 100
 Level: 2
-`
+```
 ** **
 ### 3. Level up card
 #### Code:
