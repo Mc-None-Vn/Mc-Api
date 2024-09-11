@@ -5,7 +5,7 @@
 ## |>==> Api level
 ### 1. Level card
 #### Code:
-```python
+```
 $var[url;https://mc-none-vn.onrender.com]
 $var[avt;$authorAvatar]
 $var[name;$username]
@@ -23,7 +23,7 @@ $image[$var[url]/api/level/card/?avatar=$var[avt]&username=$var[name]&level=$var
 # 
 ### 2. Level auto (Tự cộng level)
 #### Code:
-```python
+```
 $httpGet[https://mc-none-vn.onrender.com/api/level/auto/?xp=90&req=100&level=2&add=5]
 Xp: $httpResult[xp]
 Req: $httpResult[req]
@@ -34,8 +34,8 @@ Level: $httpResult[level]
 # 
 ### 3. Level up card
 #### Code:
-```python
-$image[https://mc-none-vn.onrender.com/api/level/up/?level=3&avatar=$authorAvatar]
+```
+$image[hhtps://mc-none-vn.onrender.com/api/level/up/?level=3&avatar=$authorAvatar]
 ```
 #### Thành quả:
 ![Image]
