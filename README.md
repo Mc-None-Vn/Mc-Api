@@ -1,7 +1,6 @@
 ## Welcome to Mc Api (Beta)
 ### Lưu ý: Code ở dưới là ví dụ cho BDFD, ngôn ngữ lập trình khác thì có thể dùng [Link Api](https://mc-none-vn.onrender.com)
-`
-`
+** **
 ## |>==> Api level
 ### 1. Level card
 #### Code:
@@ -20,8 +19,7 @@ $image[$var[url]/api/level/card/?avatar=$var[avt]&username=$var[name]&level=$var
 ```
 #### Thành quả:
 ![Image](https://github.com/LorenorMc/Mc-Api/blob/e9474bd090821d0119fd324c030497d7b3edcf5d/Textures/Level%20Card.png)
-`
-`
+** **
 # 
 ### 2. Level auto (Tự cộng level)
 #### Code:
@@ -42,8 +40,7 @@ Xp: 95
 Req: 100
 Level: 2
 ```
-`
-`
+** **
 # 
 ### 3. Level up card
 #### Code:
@@ -54,7 +51,7 @@ $var[lvl;3]
 $image[$var[url]/api/level/up/?level=$var[lvl]&avatar=$var[avt]]
 ```
 #### Thành quả:
-![Image]
+![Image](https://github.com/LorenorMc/Mc-Api/blob/96e03a9a47ad796d797547e8cc6bbbd881309d29/Textures/Level%20Up.png)
 `
 `
 # 
