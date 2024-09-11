@@ -5,7 +5,7 @@
 ## |>==> Api level
 ### 1. Level card
 #### Code:
-```html
+```
 $var[url;https://mc-none-vn.onrender.com]
 $var[avt;$authorAvatar]
 $var[name;$username]
