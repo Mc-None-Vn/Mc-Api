@@ -37,7 +37,9 @@ Req: $httpResult[req]
 Level: $httpResult[level]
 ```
 #### Thành quả:
-![Image]
+Xp: 95
+Req: 100
+Level: 2
 ``
 ``
 # 
