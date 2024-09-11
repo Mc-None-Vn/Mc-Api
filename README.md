@@ -41,5 +41,5 @@ $image[https://mc-none-vn.onrender.com/api/level/up/?level=3&avatar=$authorAvata
 #### Thành quả:
 ![Image]
 
-
-### © 2024 mc.none MSVB Community. All rights reserved!
+# 
+#### © 2024 mc.none MSVB Community. All rights reserved!
