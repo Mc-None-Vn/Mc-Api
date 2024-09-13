@@ -1,29 +1,27 @@
 from easy_pil import Editor, Canvas, Font
 from io import BytesIO
 from fastapi import APIRouter, Response, HTTPException
-from fastapi.responses import FileResponse
 from API.Funciones_API.convert_k_m import abreviar_numero
-import os
-import shutil
-import uuid
 import requests
+import os
+import json
+from PIL import Image, ImageDraw, ImageFont
+
+# Tạo folder để lưu ảnh
+folder_path = 'Image'
+if not os.path.exists(folder_path):
+    os.makedirs(folder_path)
 
 router = APIRouter()
 
-# Thư mục lưu trữ ảnh
-UPLOAD_DIR = 'uploads/'
-STATIC_URL = '/static/uploads/'
-
-# Tạo thư mục nếu chưa tồn tại
-os.makedirs(UPLOAD_DIR, exist_ok=True)
-
 @router.get("/api/level/card/")
 def rank(avatar: str, username: str, level: str, req: str, xp: str, color_bg: str, color_xp: str, color_font: str, color_xp_bg: str):
+
     background = Editor(Canvas((800, 200), color="#23272a"))
 
     avatar_response = requests.get(avatar)
     if avatar_response.status_code != 200:
-        raise HTTPException(status_code=400, detail="Không tải được ảnh đại diện.")
+        raise HTTPException(status_code=400, detail="Khong tai duoc anh dai dien.")
     profile = Editor(BytesIO(avatar_response.content)).resize((120, 120)).circle_image()
 
     background.paste(profile, (15, 14))
@@ -33,6 +31,7 @@ def rank(avatar: str, username: str, level: str, req: str, xp: str, color_bg: st
 
     # Đường trắng
     background.rectangle((15, 148), width=608, height=35, fill=f"{color_xp_bg}", radius=17)
+
 
     req = float(req)
     xp = float(xp)
@@ -51,27 +50,15 @@ def rank(avatar: str, username: str, level: str, req: str, xp: str, color_bg: st
     poppins = Font.poppins(size=25)
     background.text((145, 107), f"Level: {int(level)}          XP: {abreviar_numero(int(xp))} / {abreviar_numero(int(req))}", font=poppins, color=f"{color_font}")
 
-    img_buffer = BytesIO()
-    background.image.save(img_buffer, format="PNG")
-    img_buffer.seek(0)
+    image_path = os.path.join(folder_path, f'Level_Card {username}.png')
+    img.save(image_path)
+    return image_path
 
-    # Tạo tên file ngẫu nhiên
-    file_name = f"{uuid.uuid4().hex}.png"
-    file_path = os.path.join(UPLOAD_DIR, file_name)
+# Tạo JSON với danh sách ảnh và đáp án
+data = []
+for _ in range(10):
+    image_path = create_captcha(folder_path)
+    data.append({'image': image_path})
 
-    # Lưu ảnh vào thư mục
-    with open(file_path, 'wb') as f:
-        shutil.copyfileobj(img_buffer, f)
-
-    # Tạo URL của ảnh
-    image_url = f"{STATIC_URL}{file_name}"
-
-    return {"image_url": image_url}
-
-# Định nghĩa endpoint để phục vụ các tệp tĩnh
-@router.get("/static/uploads/{file_name}")
-async def serve_file(file_name: str):
-    file_path = os.path.join(UPLOAD_DIR, file_name)
-    if not os.path.isfile(file_path):
-        raise HTTPException(status_code=404, detail="File not found")
-    return FileResponse(file_path)
+with open('captcha_json.json', 'w') as f:
+    json.dump(data, f)
