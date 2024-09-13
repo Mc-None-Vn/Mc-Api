@@ -2,10 +2,10 @@ from easy_pil import Editor, Canvas, Font
 from io import BytesIO
 from fastapi import APIRouter, Response, HTTPException
 from API.Funciones_API.convert_k_m import abreviar_numero
-from flask import Flask, request, jsonify
+
 
 import requests
-    
+
 router = APIRouter()
 
 @router.get("/api/level/card/")
@@ -48,7 +48,5 @@ def rank(avatar: str, username: str, level: str, req: str, xp: str, color_bg: st
     background.image.save(img_buffer, format="PNG")
     img_buffer.seek(0)
 
-    ORIGINAL_API_URL = Response(content=img_buffer.getvalue(), media_type="image/png")
-    response = requests.get(ORIGINAL_API_URL)
-
-    return jsonify(response.json()), response.status_code
+    return Response(content=img_buffer.getvalue(), media_type="image/png")
+    
