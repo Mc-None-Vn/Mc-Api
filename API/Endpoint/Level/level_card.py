@@ -57,7 +57,7 @@ def rank(avatar: str, username: str, level: str, req: str, xp: str, color_bg: st
 # Tạo JSON với danh sách ảnh và đáp án
 data = []
 for _ in range(10):
-    image_path = rank(folder_path)
+    image_path = rank(avatar: f"{avatar}", username: f"{username}", level: f"{level}", req: f"{req}", xp: f"{xp}", color_bg: f"{color_bg}", color_xp: f"{color_xp}", color_font: f"{color_font}", color_xp_bg: f"{color_xp_bg}", folder_path)
     data.append({'image': image_path})
 
 with open('captcha_json.json', 'w') as f:
