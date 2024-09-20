@@ -2,15 +2,9 @@ from easy_pil import Editor, Canvas, Font
 from io import BytesIO
 from fastapi import APIRouter, Response, HTTPException
 from API.Funciones_API.convert_k_m import abreviar_numero
-import requests
-import os
-import json
-from PIL import Image, ImageDraw, ImageFont
 
-# Tạo folder để lưu ảnh
-folder_path = 'Image'
-if not os.path.exists(folder_path):
-    os.makedirs(folder_path)
+
+import requests
 
 router = APIRouter()
 
@@ -45,20 +39,13 @@ def rank(avatar: str, username: str, level: str, req: str, xp: str, color_bg: st
     background.rectangle((150, 80 + 4), width=145, height=2, fill=color_bg)
 
     poppins = Font.poppins(size=35)
-    background.text((150, 37 + 4), username, font=poppins, color=f"{color_font}")
+    background.text((150, 37 + 4), f"{username}", font=poppins, color=f"{color_font}")
 
     poppins = Font.poppins(size=25)
     background.text((145, 107), f"Level: {int(level)}          XP: {abreviar_numero(int(xp))} / {abreviar_numero(int(req))}", font=poppins, color=f"{color_font}")
 
-    image_path = os.path.join(folder_path, f'Level_Card {username}.png')
-    img.save(image_path)
-    return image_path
+    img_buffer = BytesIO()
+    background.image.save(img_buffer, format="PNG")
+    img_buffer.seek(0)
 
-# Tạo JSON với danh sách ảnh và đáp án
-data = []
-for _ in range(10):
-    image_path = rank(avatar: f"{avatar}", username: f"{username}", level: f"{level}", req: f"{req}", xp: f"{xp}", color_bg: f"{color_bg}", color_xp: f"{color_xp}", color_font: f"{color_font}", color_xp_bg: f"{color_xp_bg}", folder_path)
-    data.append({'image': image_path})
-
-with open('captcha_json.json', 'w') as f:
-    json.dump(data, f)
+    return Response(content=img_buffer.getvalue(), media_type="image/png")
