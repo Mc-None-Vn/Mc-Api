@@ -7,7 +7,7 @@ import logging
 router = APIRouter()
 
 @router.get("/api/card/welcome/")
-def get_custom_image(avatar: str, background: str, ctx1: str="Welcome", ctx2: str="username#0", ctx3: str="You are the 123th Member"):
+def get_custom_image(avatar: str, background: str, ctx1: str="WELCOME", ctx2: str="xquab#0", ctx3: str="You are the 457th Member"):
     try:
         
         avatar_response = requests.get(avatar)
@@ -23,10 +23,10 @@ def get_custom_image(avatar: str, background: str, ctx1: str="Welcome", ctx2: st
 
         
         poppins = Font.poppins(size=50, variant="bold")
-        poppins_small = Font.poppins(size=35, variant="regular")
+        poppins_small = Font.poppins(size=25, variant="regular")
 
        
-        horizontal_shift = 67.5
+        horizontal_shift = 63
 
        
         editor = Editor(background_image)
@@ -51,4 +51,3 @@ def get_custom_image(avatar: str, background: str, ctx1: str="Welcome", ctx2: st
     except Exception as e:
         logging.error(f"Error generating image: {e}")
         raise HTTPException(status_code=500, detail=str(e))
-
