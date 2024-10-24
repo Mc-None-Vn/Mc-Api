@@ -27,3 +27,7 @@ def on_router():
 @app.get("/api/level/")
 def on_router():
     return Response(json.dumps({"status": 200, "data": {"message": "API Level co: /level_up, /level_card, /auto_level"}}, indent=2), media_type="application/json", status_code=200)
+
+@app.get("/api/public/emojis")
+def on_router():
+    return Response(json.dumps({"status": 200, "data": {"message": "API Level co: /level_up, /level_card, /auto_level"}}, indent=2), media_type="application/json", status_code=200)
