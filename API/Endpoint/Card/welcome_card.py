@@ -7,13 +7,13 @@ import logging
 router = APIRouter()
 
 @router.get("/api/card/welcome/")
-def get_custom_image(avatar: str, background: str, ctx1: str="WELCOME", ctx2: str="xquab#0", ctx3: str="You are the 457th Member"):
+def get_custom_image(avatar: str, background: str, ctx1: str="WELCOME", ctx2: str="xquab#0"):
     try:
         
         avatar_response = requests.get(avatar)
         if avatar_response.status_code != 200:
             raise HTTPException(status_code=400, detail="Failed to download avatar image.")
-        avatar_image = Editor(BytesIO(avatar_response.content)).resize((150, 150)).circle_image()
+        avatar_image = Editor(BytesIO(avatar_response.content)).resize((175, 175)).circle_image()
 
         
         background_response = requests.get(background)
@@ -23,7 +23,7 @@ def get_custom_image(avatar: str, background: str, ctx1: str="WELCOME", ctx2: st
 
         
         poppins = Font.poppins(size=50, variant="bold")
-        poppins_small = Font.poppins(size=25, variant="regular")
+        poppins_small = Font.poppins(size=35, variant="regular")
 
        
         horizontal_shift = 63
@@ -37,8 +37,7 @@ def get_custom_image(avatar: str, background: str, ctx1: str="WELCOME", ctx2: st
 
        
         editor.text((320 + horizontal_shift, 260), ctx1, color="white", font=poppins, align="center")
-        editor.text((320 + horizontal_shift, 315), ctx2, color="white", font=poppins_small, align="center")
-        editor.text((320 + horizontal_shift, 350), ctx3, color="white", font=poppins_small, align="center")
+        editor.text((320 + horizontal_shift, 332.5), ctx2, color="white", font=poppins_small, align="center")
 
         
         img_buffer = BytesIO()
