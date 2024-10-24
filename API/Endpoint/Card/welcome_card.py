@@ -32,11 +32,11 @@ def get_custom_image(avatar: str, background: str, ctx1: str="WELCOME", ctx2: st
         editor = Editor(background_image)
 
         
-        editor.paste(avatar_image.image, (320 + horizontal_shift, 80))
-        editor.ellipse((320 + horizontal_shift, 80), 160, 160, outline="white", stroke_width=5)
+        editor.paste(avatar_image.image, (225 + horizontal_shift, 90))
+        editor.ellipse((225 + horizontal_shift, 90), 160, 160, outline="white", stroke_width=5)
 
        
-        editor.text((320 + horizontal_shift, 260), ctx1, color="white", font=poppins, align="center")
+        editor.text((320 + horizontal_shift, 275), ctx1, color="white", font=poppins, align="center")
         editor.text((320 + horizontal_shift, 332.5), ctx2, color="white", font=poppins_small, align="center")
 
         
