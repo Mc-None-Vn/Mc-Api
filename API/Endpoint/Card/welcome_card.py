@@ -13,7 +13,7 @@ def get_custom_image(avatar: str, background: str, ctx1: str="WELCOME", ctx2: st
         avatar_response = requests.get(avatar)
         if avatar_response.status_code != 200:
             raise HTTPException(status_code=400, detail="Failed to download avatar image.")
-        avatar_image = Editor(BytesIO(avatar_response.content)).resize((175, 175)).circle_image()
+        avatar_image = Editor(BytesIO(avatar_response.content)).resize((180, 180)).circle_image()
 
         
         background_response = requests.get(background)
@@ -32,8 +32,8 @@ def get_custom_image(avatar: str, background: str, ctx1: str="WELCOME", ctx2: st
         editor = Editor(background_image)
 
         
-        editor.paste(avatar_image.image, (225 + horizontal_shift, 50))
-        editor.ellipse((225 + horizontal_shift, 50), 175, 175, outline="white", stroke_width=5)
+        editor.paste(avatar_image.image, (230 + horizontal_shift, 65))
+        editor.ellipse((230 + horizontal_shift, 65), 180, 180, outline="white", stroke_width=5)
 
        
         editor.text((320 + horizontal_shift, 275), ctx1, color="white", font=poppins, align="center")
