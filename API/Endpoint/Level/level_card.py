@@ -9,7 +9,7 @@ import requests
 router = APIRouter()
 
 @router.get("/api/level/card/")
-def rank(avatar: str, username: str, level: str, req: str, xp: str, color_xp: str, color_font: str, color_xp_bg: str):
+def rank(avatar: str, username: str, level: str, req: str, xp: str):
 
     background = Editor(Canvas((800, 200), color="#23272a"))
 
