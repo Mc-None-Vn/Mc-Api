@@ -26,7 +26,7 @@ def get_custom_image(avatar: str, background: str, title: str="Welcome", descrip
         poppins_small = Font.poppins(size=37.5, variant="regular")
 
        
-        horizontal_shift = 63
+        horizontal_shift = 67.5
 
        
         editor = Editor(background_image)
