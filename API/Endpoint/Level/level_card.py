@@ -9,7 +9,7 @@ import requests
 router = APIRouter()
 
 @router.get("/api/level/card/")
-def rank(avatar: str, username: str, level: str, req: str, xp: str, color_bg: str, color_xp: str, color_font: str, color_xp_bg: str):
+def rank(avatar: str, username: str, level: str, req: str, xp: str, color_xp: str, color_font: str, color_xp_bg: str):
 
     background = Editor(Canvas((800, 200), color="#23272a"))
 
@@ -21,11 +21,10 @@ def rank(avatar: str, username: str, level: str, req: str, xp: str, color_bg: st
     background.paste(profile, (15, 14))
 
     card_right_shape = [(520, 0), (750, 300), (900, 300), (900, 0)]
-    background.polygon(card_right_shape, color_bg)
+    background.polygon(card_right_shape, "ff0000")
 
     # Đường trắng
-    background.rectangle((15, 148), width=608, height=35, fill=f"{color_xp_bg}", radius=17)
-
+    background.rectangle((15, 148), width=608, height=35, fill="ffffff", radius=17)
 
     req = float(req)
     xp = float(xp)
@@ -33,16 +32,16 @@ def rank(avatar: str, username: str, level: str, req: str, xp: str, color_bg: st
     porcentaje = int(min(porcentaje, 100))
 
     # Áp dụng tỷ lệ phần trăm cho thanh
-    background.bar((15, 148), max_width=608, height=35, percentage=porcentaje, fill=f"{color_xp}", radius=17)
+    background.bar((15, 148), max_width=608, height=35, percentage=porcentaje, fill="00e500", radius=17)
 
     # Dòng bên dưới văn bản op
-    background.rectangle((150, 80 + 4), width=145, height=2, fill=color_bg)
+    background.rectangle((150, 80 + 4), width=145, height=2, fill="ff0000")
 
     poppins = Font.poppins(size=35)
-    background.text((150, 37 + 4), username, font=poppins, color=f"{color_font}")
+    background.text((150, 37 + 4), f"username", font=poppins, color="white")
 
     poppins = Font.poppins(size=25)
-    background.text((145, 107), f"Level: {int(level)}          XP: {abreviar_numero(int(xp))} / {abreviar_numero(int(req))}", font=poppins, color=f"{color_font}")
+    background.text((145, 107), f"Level: {int(level)}    " f"XP: {abreviar_numero(int(xp))} / {abreviar_numero(int(req))}", font=poppins, color="white")
 
     img_buffer = BytesIO()
     background.image.save(img_buffer, format="PNG")
