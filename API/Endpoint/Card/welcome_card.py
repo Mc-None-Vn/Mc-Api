@@ -18,7 +18,7 @@ def get_custom_image(avatar: str, background: str, title: str="Welcome", descrip
         
         background_response = requests.get(background)
         if background_response.status_code != 200:
-            raise HTTPException(status_code=400, detail=f"Khong tai duoc hinh nen. Ma trang thai: {background_response.status_code}, Ly do: {background_response.reason}")
+            raise HTTPException(status_code=400, detail="Khong tai duoc hinh nen. Ma trang thai: {background_response.status_code}, Ly do: {background_response.reason}")
         background_image = Editor(BytesIO(background_response.content)).resize((800, 400)).image
 
         
@@ -48,5 +48,5 @@ def get_custom_image(avatar: str, background: str, title: str="Welcome", descrip
         return Response(content=img_buffer.getvalue(), media_type="image/png")
     
     except Exception as e:
-        logging.error(f"Loi khi tao hinh anh: {e}")
+        logging.error("Loi khi tao hinh anh: {e}")
         raise HTTPException(status_code=500, detail=str(e))
